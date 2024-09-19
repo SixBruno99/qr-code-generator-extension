@@ -3,8 +3,8 @@
   "name": "Bruno Henrique",
   "version": "1.0",
   "description": "Bruno Henrique",
-  "permitions": ["storage", "activeTab", "scripting"],
+  "permissions": ["activeTab", "scripting"],
   "action": {
-    "default+popup": "popup.html"
+    "default_popup": "./src/popup.html"
   }
 }
