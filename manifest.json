@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Bruno Henrique",
+  "version": "1.0",
+  "description": "Bruno Henrique",
+  "permitions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default+popup": "popup.html"
+  }
+}
