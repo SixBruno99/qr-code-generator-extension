@@ -7,11 +7,18 @@ div {
   min-height: 320px;
   min-width: 320px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: #920049;
 }
 
-h1 {
-    color: #fff;
+h2 {
+  color: #fff;
+}
+
+form {  
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
