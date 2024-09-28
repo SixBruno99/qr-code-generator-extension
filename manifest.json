@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Bruno Henrique",
+  "name": "QR Code generator",
   "version": "1.0",
-  "description": "Bruno Henrique",
+  "description": "A QR Code generator created to be a easy access chrome extention using a public api: 'https://api.invertexto.com/api-gerador-qr-code'",
   "permissions": ["activeTab", "scripting"],
   "action": {
     "default_popup": "./src/popup.html"
