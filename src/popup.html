@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="./index.css" />
-  <script src="index.js"></script>
-</head>
-<body>
-  <div>
-    <h2>Gere o QR Code do seu site</h2>
-    <form>
-      <input placeholder="Digite a URL do site"/>
-      <button type="submit">Gerar QR Code</button>
-    </form>
-  </div>
-  <div id="result-container"></div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./index.css" />
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Gere o QR Code do seu site</h2>
+      <form>
+        <input placeholder="Digite a URL do site" id="url-input" />
+        <button type="submit" id="generate-btn" disabled>Gerar QR Code</button>
+      </form>
+    </div>
+    <div id="result-container"></div>
+  </body>
 </html>
+y

@@ -1,20 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
+  const input = document.getElementById("url-input");
+  const button = document.getElementById("generate-btn");
+
+  function isValidUrl(url) {
+    const urlPattern = /^(https?:\/\/)/;
+    return urlPattern.test(url);
+  }
+
+  input.addEventListener("input", function () {
+    button.disabled = input.value.trim() === "";
+  });
+
+  button.addEventListener("mouseover", function () {
+    if (button.disabled) {
+      button.title = "Digite uma URL antes de gerar o QR Code";
+    } else {
+      button.title = "";
+    }
+  });
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
-
-    const input = document.querySelector("input");
     const url = input.value.trim();
 
-    if (url === "") {
-      alert("Por favor, digite a URL antes de gerar o QR Code.");
+    if (!isValidUrl(url)) {
+      alert(
+        "Por favor, digite uma URL válida que comece com 'http://' ou 'https://'."
+      );
       return;
     }
 
     try {
       const response = await fetch(
-        `https://api.invertexto.com/v1/qrcode?token=15428%7CaSmwhFqA7cxY82hbFl7oegMLulArdNro&text=${url}%2F&scale=4`,
+        `https://api.invertexto.com/v1/qrcode?token=15428%7CaSmwhFqA7cxY82hbFl7oegMLulArdNro&text=${encodeURIComponent(
+          url
+        )}&scale=4`,
         {
           method: "GET",
         }
@@ -29,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const imgElement = document.createElement("img");
       imgElement.src = imageUrl;
+      imgElement.alt = "QR Code";
 
       const resultContainer = document.getElementById("result-container");
       resultContainer.innerHTML = "";
