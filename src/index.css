@@ -5,15 +5,18 @@
 }
 
 body {
-  height: 400px;
-  width: 400px;
-  font-family: Arial, sans-serif;
-  background-color: #2a2a2a;
-  color: #fff;
+  width: 480px;
+  height: 100%;
+  min-height: 400px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 8px;
+  color: #fff;
+  background-color: #2a2a2a;
+  font-family: Arial, sans-serif;
 }
 
 .container {
@@ -66,4 +69,14 @@ img {
   height: auto;
   border: 2px solid #fff;
   border-radius: 5px;
+}
+
+iframe {
+  width: 400px;
+  height: 500px;
+  border: 1px solid #ccc;
+}
+
+.hidden {
+  display: none;
 }

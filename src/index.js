@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
   const input = document.getElementById("url-input");
   const button = document.getElementById("generate-btn");
+  const iframe = document.getElementById("site-preview");
+  const resultContainer = document.getElementById("result-container");
+  const previewContainer = document.getElementById("preview-container");
 
   function isValidUrl(url) {
     const urlPattern = /^(https?:\/\/)/;
@@ -32,6 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     try {
+      iframe.src = url;
+      previewContainer.classList.remove("hidden");
+
       const response = await fetch(
         `https://api.invertexto.com/v1/qrcode?token=15428%7CaSmwhFqA7cxY82hbFl7oegMLulArdNro&text=${encodeURIComponent(
           url
@@ -52,9 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
       imgElement.src = imageUrl;
       imgElement.alt = "QR Code";
 
-      const resultContainer = document.getElementById("result-container");
       resultContainer.innerHTML = "";
       resultContainer.appendChild(imgElement);
+      resultContainer.classList.remove("hidden"); // Exibe o QR Code
     } catch (error) {
       console.error("Erro ao processar requisição:", error);
       alert("Ocorreu um erro ao gerar o QR Code. Por favor, tente novamente.");
